@@ -1,0 +1,54 @@
+<footer>
+    <div>
+        <h4>&copy</h4>
+        <p>Todos los derechos reservados - 2024</p>
+    </div>
+    <nav>
+        <a href="/#about">Sobre mi</a>
+        <a target="_blank" href="https://api.whatsapp.com/send?phone=573042333522">Contactame</a>
+    </nav>
+</footer>
+
+<style>
+    footer {
+        background-color: rgba(100, 100, 100, .2);
+        padding: 0 .45rem;
+        margin: 1rem auto;
+        border-radius: 9999px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .5rem;
+    }
+
+    nav a {
+        color: white;
+        opacity: 0.8;
+        transition: opacity .3s, background-color .3s;
+        padding: 0.25rem 0.35rem;
+        border-radius: 6px;
+    }
+
+    nav a:hover {
+        opacity: 1;
+        background-color: hsla(0, 0%, 100%, 0.1);
+    }
+
+    p {
+        color: #f7f76e;
+    }
+
+    @media (min-width: 1280px) { 
+        footer {
+            width: 1120px;
+            padding: 0 1rem;
+        }
+    }
+</style>

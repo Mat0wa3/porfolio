@@ -1,0 +1,140 @@
+---
+import Tags from "./Tags.astro"
+import LinkButton from "./LinkButton.astro"
+import HtmlIcon from "../icons/Html.astro"
+import CssIcon from "../icons/Css.astro"
+import GithubIcon from "../icons/Github.astro"
+import WebIcon from "../icons/Web.astro"
+import PhpIcon from "../icons/Php.astro"
+import AstroIcon from "../icons/Astro.astro"
+import JavaScriptIcon from "../icons/JavaScript.astro"
+
+const TAGS = {
+    HTML: {
+        name: "HTML",
+        color: "#ce4822",
+        icon: HtmlIcon
+    },
+
+    CSS: {
+        name: "CSS",
+        color: "#0b68a7",
+        icon: CssIcon
+    },
+
+    JS: {
+        name: "JavaScript",
+        color: "#cbba43",
+        icon: JavaScriptIcon
+    },
+
+    Php: {
+        name: "PHP",
+        color: '#777bb3',
+        icon: PhpIcon
+    },
+
+    Astro: {
+        name: "ASTRO",
+        color: "#de5101",
+        icon: AstroIcon
+    }
+}
+
+const PROJECTS = [
+    {
+        title: 'RPG Construlivianas',
+        description: 'Es un portal web diseñado para la empresa RPG CONSTRULIVIANAS S.A.S hecho para ser una carta de presentación para la empresa, mostrando los trabajos que han hecho, como tienda tannino velez o grupo cristal, usa HTML, CSS y JAVASCRIPT vanilla con una galeria de fotos con sus proyectos, información de sus clientes, y experiencia.',
+        link: 'https://rpgconstrulivianas.com',
+        image: '/construlivianas.webp',
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JS]
+    },
+    {
+        title: 'Encriptador',
+        description: 'Encriptador y desencriptador de frases hecho durante el curso de programación web con alura latam.',
+        link: 'https://mat0wa3.github.io/Sprint01-encriptador/',
+        github: 'https://github.com/Mat0wa3/Sprint01-encriptador',
+        image: '/Encriptador.webp',
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JS]
+    },
+    {
+        title: 'Prime Saber',
+        description: ' Prime saber es un aplicativo de examen tipo pruebas saber diseñado parala institución educativa barrio santander, es una pagina institucional hecha para y por los estudiantes con la necesidad de tener una preparación para las pruebas de estado tipo saber.',
+        link: 'https://mat0wa3.github.io/Prime-Saber/',
+        github: 'https://github.com/Mat0wa3/Prime-Saber',
+        image: '/Prime-saber.webp',
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.Php]
+    },
+    {
+        title: 'Discord bot',
+        description: 'LockSley es la ultima versión del original CAOS ambos creados por mi con el proposito de alivianar el trabajo de configurar discord, crear imagenes, moderar una comunidad y entretener.',
+        image: '/Locksley.png',
+        tags: [TAGS.JS]
+    }
+]
+---
+
+{
+    PROJECTS.map(({ title, description, tags, image, link, github }) => (
+        <article>
+            <h3>{title}</h3>
+            <p>{description}</p>
+            <ul>
+                {
+                    tags.map(tag => (
+                        <li>
+                            <Tags name={tag.name} color={tag.color}>
+                                <tag.icon/>
+                            </Tags>
+                        </li>
+                    ))
+                }
+            </ul> 
+            <img loading="lazy" src={image} alt={`captura de pantalla del proyecto ${title}`}>
+            <footer>
+                {
+                    github && (
+                    <LinkButton href={github}>
+                        <GithubIcon />
+                        Ver código fuente
+                    </LinkButton>
+                    )
+                }
+                {
+
+                    link && (
+                        <LinkButton href={link}>
+                            <WebIcon />
+                            Ir al sitio web
+                        </LinkButton>
+                    )
+                }
+                
+            </footer>
+        </article>
+    ))
+}
+
+<style>
+    h3 {
+        color: #f7f76e;
+    }    
+
+    p {
+        color: rgb(148 163 184);
+    }
+
+    ul {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+    }
+
+    footer {
+        margin-top: 0.7rem;
+
+        display: flex;
+        justify-content: end;
+        gap: 0.875rem;
+    }
+</style>

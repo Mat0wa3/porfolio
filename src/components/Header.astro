@@ -1,0 +1,65 @@
+<header>
+    <a class="avatar" href="/">
+        <img src="/Mateo.webp" alt="mateo photo">
+    </a>
+
+    <nav>
+        <a href="/#experience">Experiencia</a>
+        <a href="/#projects">Projectos</a>
+        <a href="/#about">Sobre mi</a>
+        <a target="_blank" href="https://api.whatsapp.com/send?phone=573042333522">Contactame</a>
+    </nav>
+</header>
+
+<style>
+    header {
+        position: fixed;
+        background-color: rgba(100, 100, 100, .2);
+        padding: 0.25rem 1.25rem;
+        z-index: 11;
+        margin: 1.25rem auto;
+        right: 0;
+        left: 0;
+        border-radius: 9999px;
+        backdrop-filter: blur(4px);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    img {
+        border-radius: 50%;
+        height: 34px;
+        width: 34px;
+    }
+
+    .avatar {
+        display: flex;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        gap: 0 10px;
+    }
+
+    nav a {
+        color: white;
+        opacity: 0.8;
+        transition: opacity .3s, background-color .3s;
+        padding: 0.25rem 0.35rem;
+        border-radius: 6px;
+    }
+
+    nav a:hover {
+        opacity: 1;
+        background-color: hsla(0, 0%, 100%, 0.1);
+    }
+
+    @media (min-width: 1280px) { 
+        header {
+            width: 1120px;
+        }
+    }
+</style>
