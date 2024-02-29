@@ -109,9 +109,11 @@
         margin-inline: auto;
         max-width: 960px;
 
-        display: grid;
         grid-template-columns: repeat(10, 1fr);
         grid-template-rows: repeat(minmax(100px, 100%), 1fr);
+
+        display: flex;
+        flex-direction: column;
         gap: 10px;
     }
     
@@ -168,5 +170,11 @@
         padding: .25rem;
         background: rgba(40, 40, 40, .9);
         border-radius: 9999px;
+    }
+
+    @media (min-width: 768px) {
+        section {
+            display: grid;
+        }
     }
 </style>
