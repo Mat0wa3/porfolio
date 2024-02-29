@@ -1,20 +1,10 @@
----
-interface Props {
-    color: string;
-    name: string;
-}
-
-const { color, name } = Astro.props;
----
 
 <span>
     <slot />
-    {name}
 </span>
 
-<style define:vars={{ color }}>
+<style>
     span {
-        padding: 0.3rem 0.5rem;
         border-radius: 9999px;
         background-color: var(--color);
         font-weight: 700;
@@ -22,11 +12,11 @@ const { color, name } = Astro.props;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: .3rem;
+        column-gap: .3rem;
 
         svg {
-            width: 22px;
-            height: 22px;
+            width: 34px;
+            height: 34px;
             border-radius: 9999px;
             background-color: rgba(60, 60, 60, .9);
             padding: 0.25rem;

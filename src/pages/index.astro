@@ -4,7 +4,7 @@ import Experience from '../components/Experience.astro'
 import Projects from '../components/Projects.astro'
 import Badge from "../components/Badge.astro"
 import AboutMe from '../components/AboutMe.astro'
-import SocialPill from "../components/SocialPill.astro"
+import LinkButton from "../components/LinkButton.astro"
 
 import LinkedInIcon from "../icons/Linkedin.astro"
 import GithubIcon from "../icons/Github.astro"
@@ -22,22 +22,22 @@ import ProfileIcon from "../icons/Profile.astro"
 
 	<main>
 		<section class="met">
-			<h1>Hola, soy Mateo <a href="https://www.linkedin.com/in/mateo-l%C3%B3pez-mu%C3%B1oz-45aa9125a/" target="_blank" rel="noopener"><Badge>Disponible para trabajar.</Badge></a></h1>
+			<h1>Hola, soy Mateo <Badge href="https://www.linkedin.com/in/mateo-l%C3%B3pez-mu%C3%B1oz-45aa9125a/">Disponible para trabajar.</Badge></h1>
 			<h2>+3 años de experiencia. Desarrollador fullstack. De Medellín, Colombia. Especializado en crear aplicaciones de alta calidad.</h2>
 			
 			<nav>
-				<SocialPill href="https://www.linkedin.com/in/mateo-l%C3%B3pez-mu%C3%B1oz-45aa9125a/">
+				<LinkButton href="https://www.linkedin.com/in/mateo-l%C3%B3pez-mu%C3%B1oz-45aa9125a/">
 					<LinkedInIcon class="icon"/>
 					LinkedIn
-				</SocialPill>
-				<SocialPill href="https://github.com/Mat0wa3">
+				</LinkButton>
+				<LinkButton href="https://github.com/Mat0wa3">
 					<GithubIcon class="icon"/>
 					Github
-				</SocialPill>
-				<SocialPill href="mailto:mmateo1804@gmail.com">
+				</LinkButton>
+				<LinkButton href="mailto:mmateo1804@gmail.com">
 					<MailIcon class="icon"/>
 					mmateo1804@gmail.com
-				</SocialPill>
+				</LinkButton>
 			</nav>
 		</section>
 
@@ -128,7 +128,7 @@ import ProfileIcon from "../icons/Profile.astro"
 
 	@media (min-width: 1024px) { 
 		section {
-			width: 740px;
+			width: 960px;
 			padding-inline: 1.5rem;
 		}
 
