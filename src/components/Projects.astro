@@ -45,24 +45,28 @@
         {
             title: 'RPG-Construlivianas',
             image: '/construlivianas.webp',
+            description: 'Portal web para la empresa de construcción Colombiana RPG Construlivianas S.A.S.',
             github: 'https://github.com/Mat0wa3/Construlivianas',
             tags: [TAGS.HTML, TAGS.CSS, TAGS.JS]
         },
         {
             title: 'Encriptador',
             github: 'https://github.com/Mat0wa3/Sprint01-encriptador',
+            description: 'Aplicación de encriptado y desencriptado hecha para el reto de Alura Latam.',
             image: '/Encriptador.webp',
             tags: [TAGS.HTML, TAGS.CSS, TAGS.JS]
         },
         {
             title: 'Prime-Saber',
             github: 'https://github.com/Mat0wa3/Prime-Saber',
+            description: 'Aplicativo web diseñado para instituciones educativas con el fin de realizar un simulacro de las pruebas de estado.',
             image: '/Prime-Saber.webp',
             tags: [TAGS.HTML, TAGS.CSS, TAGS.Php]
         },
         {
             title: 'Discord-bot',
             image: '/Discord-bot.webp',
+            description: 'LockSley es la última versión del original CAOS, ambos creados por mí con el propósito de alivianar el trabajo de configurar Discord, crear imágenes, moderar una comunidad y entretener.',
             tags: [TAGS.JS]
         }
     ]
@@ -70,8 +74,11 @@
 
 <section>
 {
-    PROJECTS.map(({ title, tags, image, github }) => (
+    PROJECTS.map(({ title, description, tags, image, github }) => (
         <article id={title}>
+            <div class="description">
+                <p>{description}</p>
+            </div>
             <h3>{title}</h3>
             <ul>
                 {
@@ -101,6 +108,23 @@
 </section>
 
 <style>
+    .description {
+        position: absolute;
+        background-color: rgba(0, 0, 0, .6);
+        height: 100%;
+        width: 100%;
+        left: -100%;
+        padding-inline: 15px;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        backdrop-filter: blur(5px);
+        transition: all .5s ease;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     section {
         margin-inline: auto;
         max-width: 960px;
@@ -117,7 +141,12 @@
         overflow: hidden;
         border-radius: 2rem;
         padding: 0 1rem;
+        position: relative;
+    }
 
+    article:hover .description {
+        left: 0;
+        right: 0;
     }
 
     #RPG-Construlivianas {
@@ -155,15 +184,15 @@
     footer {
         display: flex;
         justify-content: end;
-        transform: translate(-1%, -110%);
-        margin: 0;
-        padding: 0;
     }
 
     a {
         padding: .25rem;
         background: rgba(40, 40, 40, .9);
         border-radius: 9999px;
+        position: absolute;
+        bottom: 0;
+        transform: translate(-1px, -50%);
 
         display: flex;
     }
