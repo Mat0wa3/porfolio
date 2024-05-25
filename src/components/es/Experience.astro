@@ -1,0 +1,46 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE = [
+    {
+        date: 'Abril 2019 - Febrero 2023',
+        title: 'Bot de Discord con Node.js',
+        description: 'Bot de Discord con más de 50 funcionalidades: moderación, tickets, autoroles y más. Creado para el influencer Aurigas.',
+    },
+    {
+        date: 'Febrero 2024',
+        title: 'Portal web para Construlivianas S.A.S.',
+        description: 'Página de contacto, con galería de imágenes, proyectos e información para Construlivianas S.A.S. Desarrollada con HTML y CSS Vanilla.'
+    }
+]
+---
+<ol>
+    {
+        EXPERIENCE.map(experience => (
+            <li>
+                <ExperienceItem { ... experience} />
+            </li>
+        ))
+    }
+</ol>
+
+<style>
+    ol {
+        align-items: start;
+        flex-direction: column-reverse;
+    }
+
+    li {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    @media (min-width: 640px) {
+        ol{
+            display: flex;
+            flex-direction: row;
+        }
+    }
+</style>
