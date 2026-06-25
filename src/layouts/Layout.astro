@@ -1,18 +1,17 @@
 ---
-	import Header from "../components/Header.astro";
-	import Footer from "../components/Footer.astro";
+import ProfileSidebar from "@/components/ProfileSidebar.astro";
+import "@/styles/global.css";
 
-	interface Props {
-		title: string;
-		description: string;
-	}
+interface Props {
+	title: string;
+	description: string;
+}
 
-	const { title, description } = Astro.props;
-
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es" class="bg-background">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -21,64 +20,17 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<Header />
-		<slot />
-		<Footer />
+	<body class="font-sans antialiased">
+		<div class="relative min-h-screen bg-background">
+		<div class="pointer-events-none fixed inset-0 bg-grid opacity-40" aria-hidden="true"></div>
+		<div class="pointer-events-none fixed -top-40 left-1/4 size-144 rounded-full bg-primary/10 blur-[120px]" aria-hidden="true"></div>
+
+		<main class="relative mx-auto max-w-6xl px-6 sm:px-10 lg:flex lg:gap-12 lg:px-12">
+			<ProfileSidebar/>
+			<div class="py-16 lg:w-[56%] lg:py-24">
+				<slot />
+			</div>
+		</main>
+	</div>
 	</body>
 </html>
-<style is:global>
-	:root {
-
-	}
-
-	*, *::before, *::after {
-		box-sizing: border-box;
-	}
-
-	h1, h2, h3, h4 {
-		text-wrap: balance;
-	}
-
-	img {
-		display: block;
-		max-width: 100%;
-	}
-
-	html {
-		font-family: sans-serif;
-		background: #13151a;
-		color-scheme: dark light;
-		scroll-behavior: smooth;
-	}
-
-	body {
-		margin: 0;
-		padding: 0;
-		
- 		display: flex;
-		flex-direction: column;
-		min-height: 100dvh;
-	}
-
-	ol, ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
-
-	p {
-		text-wrap: pretty;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		html {
-			scroll-behavior: auto;
-		}
-	}
-</style>
