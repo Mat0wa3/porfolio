@@ -1,73 +1,66 @@
 ---
 import SectionHeading from "@/components/SectionHeading.astro";
+
+const EXPERIENCES = [
+    {
+        place: "Ceiba Software S.A.S.",
+        role: "Ingeniero DevSecOps",
+        time: "Enero - Julio. 2026",
+        description: "Contribuí al desarrollo de soluciones de automatización e Inteligencia Artificial para optimizar procesos internos, además de trabajar en la mejora de pipelines CI/CD y herramientas del ecosistema DevSecOps de la compañía.",
+        tags: ["DevSecOps", "AI Automation", "n8n", "CI/CD", "Azure DevOps"]
+    },
+    {
+        place: "Frutal Creciente",
+        role: "Desarrollador FullStack",
+        time: "Junio - Diciembre. 2025",
+        description: "Co-desarrollé una landing page/tienda virtual para productos capilares con una pasarela de pagos segura por medio de mercadopago, también construí un portal administrativo dinámico permitiendo agregar productos, gestionar imagenes y secciones de la landing page en tiempo real.",
+        tags: ["FireBase", "Mercado pago", "VueJS", "Express"]
+    },
+    {
+        place: "RPG Construlivianas S.A.S.",
+        role: "Desarrollador FullStack",
+        time: "2024 - 2025",
+        description: "Desarrollé desde cero el portafolios corporativo, con un diseño minimalista y accesible el cual logró la digitalización total de la identidad de la empresa, expandiendo su alcance.",
+        tags: ["HTML", "CSS", "JavaScript", "CI/CD"]
+    },
+    {
+        place: "Nails-top",
+        role: "Desarrollador FullStack",
+        time: "2023 - 2024",
+        description: "Diseñé y construí un sistema de reservas online logrando una gestión un 40% más veloz y automatice la gestión interna del negocio, reemplazando por completo los registros tradicionales en papel por un ecosistema digital eficiente.",
+        tags: ["AstroJS", "TailWindCSS", "JavaScript", "Vercel"]
+    }
+]
 ---
 
 <section id="experience" class="scroll-mt-24 pt-4">
     <SectionHeading index="01" title="Experiencia"/>
 
     <div class="grid gap-3">
-        <div class="group grid gap-2 rounded-lg border border-transparent p-4 transition-colors hover:border-border hover:bg-card/60 sm:grid-cols-[160px_1fr]">
-            <p class="font-mono text-xs uppercase tracking-wider text-muted-foreground sm:pt-1">
-                2026 - present
-            </p>
-            <div>
-                <h3 class="font-heading text-base font-semibold text-foreground">
-                    Ingeniero DevSecOps
-                    <span class="text-primary">· Ceiba Software S.A.S.</span>
-                </h3>
-                <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    Contribuí al desarrollo de soluciones de automatización e Inteligencia Artificial para optimizar procesos internos, además de trabajar en la mejora de pipelines CI/CD y herramientas del ecosistema DevSecOps de la compañía.
-                </p>
-                <div class="mt-3 flex flex-wrap gap-1.5">
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">DevSecOps</span>
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">AI Automation</span>
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">n8n</span>
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">CI/CD</span>
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">Azure DevOps</span>
+        {
+            EXPERIENCES.map(experience => (
+                <div class="group grid gap-2 rounded-lg border border-transparent p-4 transition-colors hover:border-border hover:bg-card/60 sm:grid-cols-[160px_1fr]">
+                    <p class="font-mono text-xs uppercase tracking-wider text-muted-foreground sm:pt-1">
+                        {experience.time}
+                    </p>
+                    <div>
+                        <h3 class="font-heading text-base font-semibold text-foreground">
+                            {experience.role}
+                            <span class="text-primary"> · {experience.place}</span>
+                        </h3>
+                        <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+                            {experience.description}
+                        </p>
+                        <div class="mt-3 flex flex-wrap gap-1.5">
+                            {
+                                experience.tags.map(tag => (
+                                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">{tag}</span>
+                                ))
+                            }
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="group grid gap-2 rounded-lg border border-transparent p-4 transition-colors hover:border-border hover:bg-card/60 sm:grid-cols-[160px_1fr]">
-            <p class="font-mono text-xs uppercase tracking-wider text-muted-foreground sm:pt-1">
-                2026 - present
-            </p>
-            <div>
-                <h3 class="font-heading text-base font-semibold text-foreground">
-                    Ingeniero DevSecOps
-                    <span class="text-primary">· Ceiba Software S.A.S.</span>
-                </h3>
-                <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    Contribuí al desarrollo de soluciones de automatización e Inteligencia Artificial para optimizar procesos internos, además de trabajar en la mejora de pipelines CI/CD y herramientas del ecosistema DevSecOps de la compañía.
-                </p>
-                <div class="mt-3 flex flex-wrap gap-1.5">
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">DevSecOps</span>
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">AI Automation</span>
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">n8n</span>
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">CI/CD</span>
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">Azure DevOps</span>
-                </div>
-            </div>
-        </div>
-        <div class="group grid gap-2 rounded-lg border border-transparent p-4 transition-colors hover:border-border hover:bg-card/60 sm:grid-cols-[160px_1fr]">
-            <p class="font-mono text-xs uppercase tracking-wider text-muted-foreground sm:pt-1">
-                2026 - present
-            </p>
-            <div>
-                <h3 class="font-heading text-base font-semibold text-foreground">
-                    Ingeniero DevSecOps
-                    <span class="text-primary">· Ceiba Software S.A.S.</span>
-                </h3>
-                <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    Contribuí al desarrollo de soluciones de automatización e Inteligencia Artificial para optimizar procesos internos, además de trabajar en la mejora de pipelines CI/CD y herramientas del ecosistema DevSecOps de la compañía.
-                </p>
-                <div class="mt-3 flex flex-wrap gap-1.5">
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">DevSecOps</span>
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">AI Automation</span>
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">n8n</span>
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">CI/CD</span>
-                    <span class="rounded border border-border bg-secondary/40 px-2 py-0.5 font-mono text-[11px] text-foreground/80">Azure DevOps</span>
-                </div>
-            </div>
-        </div>
+            ))
+        }
     </div>
 </section>
