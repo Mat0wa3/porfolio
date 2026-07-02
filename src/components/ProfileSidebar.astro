@@ -5,7 +5,7 @@ import Linkedin from "@/icons/Linkedin.astro";
 import MapPin from "@/icons/MapPin.astro";
 ---
 
-<header class="lg:sticky lg:top-0 lg:flex lg:h-screen lg:max-h-screen lg:w-[44%] lg:flex-col lg:justify-between lg:py-24 lg:pr-12">
+<header class="py-12 lg:sticky lg:top-0 lg:flex lg:h-screen lg:max-h-screen lg:w-[44%] lg:flex-col lg:justify-between lg:py-24 lg:pr-12">
     <div>
         <div class="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1.5 font-mono text-xs text-muted-foreground w-fit">
             <span class="relative flex size-2">
@@ -77,65 +77,65 @@ import MapPin from "@/icons/MapPin.astro";
             <ArrowUpRight class="size-3.5" aria-hidden="true" />
         </a>
     </footer>
-    <script type="module">
-        (function(){
-            const nav = document.querySelector('nav');
-            if (!nav) return;
-            const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
-            const firstSpanSel = 'span.h-px';
-            const secondSpanSel = 'span.transition-colors';
+</header>
+<script type="module">
+    (function(){
+        const nav = document.querySelector('nav');
+        if (!nav) return;
+        const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
+        const firstSpanSel = 'span.h-px';
+        const secondSpanSel = 'span.transition-colors';
 
-            function clearActive(){
-                links.forEach(a=>{
-                    const first = a.querySelector(firstSpanSel);
-                    const second = a.querySelector(secondSpanSel);
-                    if (first){
-                        first.classList.remove('w-14','bg-primary');
-                        if (!first.classList.contains('w-7')) first.classList.add('w-7');
-                        if (!first.classList.contains('bg-border')) first.classList.add('bg-border');
-                    }
-                    if (second){
-                        second.classList.remove('text-primary');
-                    }
-                });
-            }
-
-            function setActive(hash){
-                if (!hash) return;
-                clearActive();
-                const a = links.find(l=>l.getAttribute('href')===hash);
-                if (!a) return;
+        function clearActive(){
+            links.forEach(a=>{
                 const first = a.querySelector(firstSpanSel);
                 const second = a.querySelector(secondSpanSel);
                 if (first){
-                    first.classList.remove('w-7','bg-border');
-                    first.classList.add('w-14','bg-primary');
+                    first.classList.remove('w-14','bg-primary');
+                    if (!first.classList.contains('w-7')) first.classList.add('w-7');
+                    if (!first.classList.contains('bg-border')) first.classList.add('bg-border');
                 }
                 if (second){
-                    second.classList.add('text-primary');
+                    second.classList.remove('text-primary');
                 }
-            }
-
-            links.forEach(a=>{
-                a.addEventListener('click', ()=>{
-                    // apply immediately on click
-                    setActive(a.getAttribute('href'));
-                });
             });
+        }
 
-            // Observe sections entering the viewport
-            const sections = links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-            if (sections.length){
-                const obs = new IntersectionObserver(entries=>{
-                    entries.forEach(entry=>{
-                        if (entry.isIntersecting) setActive('#'+entry.target.id);
-                    });
-                },{root:null,rootMargin:'0px',threshold:0.6});
-                sections.forEach(s=>obs.observe(s));
-            } else {
-                // fallback to hash on load
-                setActive(location.hash || links[0]?.getAttribute('href'));
+        function setActive(hash){
+            if (!hash) return;
+            clearActive();
+            const a = links.find(l=>l.getAttribute('href')===hash);
+            if (!a) return;
+            const first = a.querySelector(firstSpanSel);
+            const second = a.querySelector(secondSpanSel);
+            if (first){
+                first.classList.remove('w-7','bg-border');
+                first.classList.add('w-14','bg-primary');
             }
-        })();
-    </script>
-</header>
+            if (second){
+                second.classList.add('text-primary');
+            }
+        }
+
+        links.forEach(a=>{
+            a.addEventListener('click', ()=>{
+                // apply immediately on click
+                setActive(a.getAttribute('href'));
+            });
+        });
+
+        // Observe sections entering the viewport
+        const sections = links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+        if (sections.length){
+            const obs = new IntersectionObserver(entries=>{
+                entries.forEach(entry=>{
+                    if (entry.isIntersecting) setActive('#'+entry.target.id);
+                });
+            },{root:null,rootMargin:'0px',threshold:0.6});
+            sections.forEach(s=>obs.observe(s));
+        } else {
+            // fallback to hash on load
+            setActive(location.hash || links[0]?.getAttribute('href'));
+        }
+    })();
+</script>
