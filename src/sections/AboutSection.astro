@@ -2,6 +2,34 @@
 import SectionHeading from "@/components/SectionHeading.astro";
 ---
 
+<style>
+.details-toggle {
+  display: grid;
+  grid-template-areas:
+    "content"
+    "summary";
+  gap: 0.75rem;
+}
+
+.details-toggle summary {
+  grid-area: summary;
+  list-style: none;
+  padding: 0;
+}
+
+.details-toggle summary::-webkit-details-marker {
+  display: none;
+}
+
+.details-toggle summary::before {
+  content: "...ver más";
+}
+
+.details-toggle[open] summary::before {
+  content: "...ver menos";
+}
+</style>
+
 <section id="about" class="scroll-mt-24 pt-20">
     <SectionHeading index="03" title="Acerca de mi" />
 
@@ -21,12 +49,28 @@ import SectionHeading from "@/components/SectionHeading.astro";
             <p class="text-foreground/90">
                 Soy Desarrollador Full Stack con experiencia en la construcción de aplicaciones web, plataformas digitales y soluciones de automatización orientadas a resolver necesidades reales de negocio. A lo largo de mi trayectoria he participado en proyectos corporativos, comerciales y de transformación digital, trabajando desde la concepción de la solución hasta su despliegue en producción.
             </p>
-            <p class="text-foreground/90">
-                Mi experiencia combina desarrollo frontend y backend, diseño de APIs, integración de servicios externos, bases de datos SQL y NoSQL, automatización de procesos e implementación de soluciones basadas en <span class="text-primary">Inteligencia Artificial</span>. He contribuido al desarrollo de plataformas de comercio electrónico, sistemas de reservas, herramientas internas y flujos automatizados que optimizan la operación de equipos técnicos y organizaciones.
-            </p>
-            <p class="text-foreground/90">
-                Disfruto enfrentando desafíos complejos y transformándolos en soluciones simples, escalables y mantenibles. Me interesa especialmente la creación de productos digitales de alto impacto, la <span class="text-warning">arquitectura de software</span> y la aplicación práctica de la Inteligencia Artificial para potenciar procesos y generar valor a través de la tecnología.
-            </p>
+
+            <div class="hidden sm:block space-y-3">
+                <p class="text-foreground/90">
+                    Mi experiencia combina desarrollo frontend y backend, diseño de APIs, integración de servicios externos, bases de datos SQL y NoSQL, automatización de procesos e implementación de soluciones basadas en <span class="text-primary">Inteligencia Artificial</span>. He contribuido al desarrollo de plataformas de comercio electrónico, sistemas de reservas, herramientas internas y flujos automatizados que optimizan la operación de equipos técnicos y organizaciones.
+                </p>
+                <p class="text-foreground/90">
+                    Disfruto enfrentando desafíos complejos y transformándolos en soluciones simples, escalables y mantenibles. Me interesa especialmente la creación de productos digitales de alto impacto, la <span class="text-warning">arquitectura de software</span> y la aplicación práctica de la Inteligencia Artificial para potenciar procesos y generar valor a través de la tecnología.
+                </p>
+            </div>
+
+            <details class="details-toggle block sm:hidden bg-transparent p-0">
+                <summary class="cursor-pointer text-primary underline underline-offset-4 transition hover:text-primary/80 block sm:hidden"></summary>
+                <div class="mt-3 space-y-3">
+                    <p class="text-foreground/90">
+                        Mi experiencia combina desarrollo frontend y backend, diseño de APIs, integración de servicios externos, bases de datos SQL y NoSQL, automatización de procesos e implementación de soluciones basadas en <span class="text-primary">Inteligencia Artificial</span>. He contribuido al desarrollo de plataformas de comercio electrónico, sistemas de reservas, herramientas internas y flujos automatizados que optimizan la operación de equipos técnicos y organizaciones.
+                    </p>
+                    <p class="text-foreground/90">
+                        Disfruto enfrentando desafíos complejos y transformándolos en soluciones simples, escalables y mantenibles. Me interesa especialmente la creación de productos digitales de alto impacto, la <span class="text-warning">arquitectura de software</span> y la aplicación práctica de la Inteligencia Artificial para potenciar procesos y generar valor a través de la tecnología.
+                    </p>
+                </div>
+            </details>
+
             <p class="text-muted-foreground">
                 <span class="text-primary">$</span> uptime
                 <span class="ml-2 animate-blink text-primary">▋</span>
