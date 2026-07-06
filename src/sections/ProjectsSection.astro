@@ -4,25 +4,32 @@ import ArrowUpRight from "@/icons/ArrowUpRight.astro";
 
 const PROJECTS = [
     {
-        link: "#",
-        title: "RPGConstrulivianas",
-        attachment: "Landing page · 2024",
+        link: "https://mat0wa3.github.io/Construlivianas/",
+        title: "RPG Construlivianas S.A.S.",
+        attachment: "Langing page · 2024",
         description: "Portal web oficial para RPG Construlivianas S.A.S., empresa de construcción colombiana, muestra sus servicios, proyectos y experiencia.",
         tags: ["HTML", "CSS", "JavaScript"]
     },
     {
-        link: "#",
-        title: "RPGConstrulivianas",
-        attachment: "Landing page · 2024",
-        description: "Portal web oficial para RPG Construlivianas S.A.S., empresa de construcción colombiana, muestra sus servicios, proyectos y experiencia.",
-        tags: ["HTML", "CSS", "JavaScript"]
+        link: "http://mat0wa3.github.io/Prime-Saber",
+        title: "Prime Saber",
+        attachment: "Landing - students manager · 2022",
+        description: "Landing page, gestor de estudiantes y examenes escolares diseñado para hacer simulacros de las pruebas saber nacionales.",
+        tags: ["HTML", "CSS", "PHP", "MySQL"]
     },
     {
-        link: "#",
-        title: "RPGConstrulivianas",
-        attachment: "Landing page · 2024",
-        description: "Portal web oficial para RPG Construlivianas S.A.S., empresa de construcción colombiana, muestra sus servicios, proyectos y experiencia.",
-        tags: ["HTML", "CSS", "JavaScript"]
+        link: "https://frutal-creciente.vercel.app/",
+        title: "Frutal Creciente",
+        attachment: "Landing - Ecommerce · 2025",
+        description: "Landing page, Ecommerce y panel administrativo para secciones, productos y baners de la landing page para promocionar el emprendimiento de productos capilares de la marca Frutal Creciente.",
+        tags: ["VueJS", "TailwindCSS", "JavaScript", "FireBase", "DaisyUI"]
+    },
+    {
+        link: "https://react-fit-tracker.vercel.app/",
+        title: "React fit tracker",
+        attachment: "Web App · 2025",
+        description: "Aplicativo web el cual gestiona la rutina de ejercicio diario con metricas mensuales.",
+        tags: ["ReactJS", "TailwindCSS", "TypeScript"]
     }
 ]
 ---
@@ -33,7 +40,7 @@ const PROJECTS = [
     <div class="grid gap-3">
         {
             PROJECTS.map(project => (
-                <a href={project.link} class="group rounded-lg border border-border bg-card/60 p-5 transition-all hover:border-primary/40 hover:bg-card">
+                <a href={project.link} target="_blank" class="group rounded-lg border border-border bg-card/60 p-5 transition-all hover:border-primary/40 hover:bg-card">
                     <div class="flex flex-wrap items-start justify-between md:gap-4">
                         <div class="flex items-center gap-3">
                             <h3 class="font-heading text-lg font-semibold text-foreground transition-colors group-hover:text-primary">
