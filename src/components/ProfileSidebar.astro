@@ -1,8 +1,8 @@
 ---
-import ArrowUpRight from "@/icons/ArrowUpRight.astro";
-import Github from "@/icons/Github.astro";
-import Linkedin from "@/icons/Linkedin.astro";
-import MapPin from "@/icons/MapPin.astro";
+import ArrowUpRight from "@/icons/ArrowUpRight.astro"
+import Github from "@/icons/Github.astro"
+import Linkedin from "@/icons/Linkedin.astro"
+import MapPin from "@/icons/MapPin.astro"
 ---
 
 <header class="py-12 lg:sticky lg:top-0 lg:flex lg:h-screen lg:max-h-screen lg:w-[44%] lg:flex-col lg:justify-between lg:py-24 lg:pr-12">
@@ -20,7 +20,7 @@ import MapPin from "@/icons/MapPin.astro";
         </h1>
     
         <p class="mt-4 font-mono text-sm uppercase tracking-[0.18rem] text-primary">
-            Desarrollador fullstack · Ingeniero DevSecOps
+            Desarrollador fullstack
         </p>
     
         <p class="mt-5 max-w-sm text-base leading-relaxed text-muted-foreground text-pretty">
@@ -80,62 +80,59 @@ import MapPin from "@/icons/MapPin.astro";
 </header>
 <script type="module">
     (function(){
-        const nav = document.querySelector('nav');
-        if (!nav) return;
-        const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
-        const firstSpanSel = 'span.h-px';
-        const secondSpanSel = 'span.transition-colors';
+        const nav = document.querySelector('nav')
+        if (!nav) return
+        const links = Array.from(nav.querySelectorAll('a[href^="#"]'))
+        const firstSpanSel = 'span.h-px'
+        const secondSpanSel = 'span.transition-colors'
 
         function clearActive(){
-            links.forEach(a=>{
-                const first = a.querySelector(firstSpanSel);
-                const second = a.querySelector(secondSpanSel);
+            links.forEach(a => {
+                const first = a.querySelector(firstSpanSel)
+                const second = a.querySelector(secondSpanSel)
                 if (first){
-                    first.classList.remove('w-14','bg-primary');
-                    if (!first.classList.contains('w-7')) first.classList.add('w-7');
-                    if (!first.classList.contains('bg-border')) first.classList.add('bg-border');
+                    first.classList.remove('w-14','bg-primary')
+                    if (!first.classList.contains('w-7')) first.classList.add('w-7')
+                    if (!first.classList.contains('bg-border')) first.classList.add('bg-border')
                 }
                 if (second){
-                    second.classList.remove('text-primary');
+                    second.classList.remove('text-primary')
                 }
-            });
+            })
         }
 
         function setActive(hash){
-            if (!hash) return;
-            clearActive();
-            const a = links.find(l=>l.getAttribute('href')===hash);
-            if (!a) return;
-            const first = a.querySelector(firstSpanSel);
-            const second = a.querySelector(secondSpanSel);
+            if (!hash) return
+            clearActive()
+            const a = links.find(l => l.getAttribute('href') === hash)
+            if (!a) return
+            const first = a.querySelector(firstSpanSel)
+            const second = a.querySelector(secondSpanSel)
             if (first){
-                first.classList.remove('w-7','bg-border');
-                first.classList.add('w-14','bg-primary');
+                first.classList.remove('w-7','bg-border')
+                first.classList.add('w-14','bg-primary')
             }
             if (second){
-                second.classList.add('text-primary');
+                second.classList.add('text-primary')
             }
         }
 
-        links.forEach(a=>{
-            a.addEventListener('click', ()=>{
-                // apply immediately on click
-                setActive(a.getAttribute('href'));
-            });
-        });
+        links.forEach(a => {
+            a.addEventListener('click', () => {
+                setActive(a.getAttribute('href'))
+            })
+        })
 
-        // Observe sections entering the viewport
-        const sections = links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-        if (sections.length){
-            const obs = new IntersectionObserver(entries=>{
-                entries.forEach(entry=>{
-                    if (entry.isIntersecting) setActive('#'+entry.target.id);
-                });
-            },{root:null,rootMargin:'0px',threshold:0.6});
-            sections.forEach(s=>obs.observe(s));
+        const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean)
+        if (sections.length) {
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) setActive('#' + entry.target.id)
+                })
+            },{root:null,rootMargin:'0px',threshold:0.6})
+            sections.forEach(s => obs.observe(s))
         } else {
-            // fallback to hash on load
-            setActive(location.hash || links[0]?.getAttribute('href'));
+            setActive(location.hash || links[0]?.getAttribute('href'))
         }
-    })();
+    })()
 </script>
